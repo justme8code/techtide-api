@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    username: ${AZURE_SQLSERVER_USERNAME}
+    password: ${AZURE_SQLSERVER_PASSWORD}
+    url: ${AZURE_SQLSERVER_URL}
+    # Make sure this resolves to a valid URL
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.SQLServerDialect
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: false
+        dialect: org.hibernate.dialect.SQLServerDialect
+  app:
+    jwtSecret: ${JWT_SECRET}
+    jwtExpirationS: 36000

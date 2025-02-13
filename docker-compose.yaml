@@ -1,0 +1,9 @@
+services:
+  techtide:
+    container_name: techtide-container
+    image: techtide:1.0
+
+    env_file:
+      - .azure/default/.env
+    ports:
+      - "8080:8080"
