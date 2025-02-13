@@ -38,3 +38,7 @@ out/
 
 .env
 *.env*
+
+### Docker File ###
+Dockerfile
+docker-compose.yaml
