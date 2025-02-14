@@ -24,15 +24,13 @@ import java.util.Optional;
 
 @Service
 public class AuthServiceImpl implements AuthService {
-    private final UserService userService;
     private final AuthenticationManager authenticationManager;
     private final JwtAuthorizer authorizer;
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
     @Autowired
-    public AuthServiceImpl(UserService userService, AuthenticationManager authenticationManager, JwtAuthorizer authorizer, UserRepository userRepository, RoleRepository roleRepository) {
-        this.userService = userService;
+    public AuthServiceImpl(AuthenticationManager authenticationManager, JwtAuthorizer authorizer, UserRepository userRepository, RoleRepository roleRepository) {
         this.authenticationManager = authenticationManager;
         this.authorizer = authorizer;
         this.userRepository = userRepository;
@@ -67,7 +65,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void createNewUser(User user) {
-         userService.addUser(user);
+         userRepository.save(user);
     }
 
 
