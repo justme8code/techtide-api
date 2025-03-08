@@ -2,7 +2,7 @@ package com.justme8code.techtide.controllers;
 
 import com.justme8code.techtide.dtos.BlogPostDto;
 import com.justme8code.techtide.models.BlogPost;
-import com.justme8code.techtide.services.BlogPostService;
+import com.justme8code.techtide.services.impls.BlogPostService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

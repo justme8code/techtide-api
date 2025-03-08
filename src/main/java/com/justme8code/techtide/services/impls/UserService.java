@@ -1,4 +1,4 @@
-package com.justme8code.techtide.services;
+package com.justme8code.techtide.services.impls;
 
 import com.justme8code.techtide.models.User;
 import com.justme8code.techtide.repositories.UserRepository;

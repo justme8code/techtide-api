@@ -1,4 +1,4 @@
-package com.justme8code.techtide.services;
+package com.justme8code.techtide.services.impls;
 
 import com.justme8code.techtide.dtos.BlogPostDto;
 import com.justme8code.techtide.dtos.BlogPostDtoWithContent;

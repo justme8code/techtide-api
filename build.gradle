@@ -43,7 +43,6 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-api:0.12.6")
     implementation("org.mapstruct:mapstruct:1.6.3")
     annotationProcessor("org.mapstruct:mapstruct-processor:1.6.3")
-
 }
 
 dependencyManagement {

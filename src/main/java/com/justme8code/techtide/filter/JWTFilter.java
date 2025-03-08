@@ -1,7 +1,7 @@
 package com.justme8code.techtide.filter;
 
 import com.justme8code.techtide.exceptions.JWTException;
-import com.justme8code.techtide.services.CustomUserDetailsService;
+import com.justme8code.techtide.services.impls.CustomUserDetailsService;
 import com.justme8code.techtide.util.JwtAuthorizer;
 import com.justme8code.techtide.util.JwtFilterUtil;
 import io.jsonwebtoken.Claims;

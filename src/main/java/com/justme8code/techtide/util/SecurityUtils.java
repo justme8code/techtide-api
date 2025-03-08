@@ -28,5 +28,7 @@ public class SecurityUtils {
     public static  Authentication authenticateUser(User user, AuthenticationManager authenticationManager) {
         return authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
     }
+
+
 }
 

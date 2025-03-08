@@ -1,6 +1,7 @@
-package com.justme8code.techtide.services;
+package com.justme8code.techtide.services.interfaces;
 
 import com.justme8code.techtide.custom_responses.LoginResponse;
+import com.justme8code.techtide.models.ResetPasswordRequest;
 import com.justme8code.techtide.models.User;
 import com.justme8code.techtide.models.UserLogin;
 import com.justme8code.techtide.util.UserRole;
@@ -12,4 +13,6 @@ public interface AuthService {
     LoginResponse login(UserLogin userLogin, HttpServletResponse response, HttpServletRequest request);
     void logout( HttpServletResponse response);
     void createNewUser(User user);
+    void resetPassword(ResetPasswordRequest resetPasswordRequest);
+    void changePassword(ResetPasswordRequest resetPasswordRequest);
 }

@@ -7,7 +7,6 @@ import com.justme8code.techtide.repositories.UserRepository;
 import com.justme8code.techtide.util.UserRole;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.HashSet;
@@ -18,13 +17,11 @@ public class DataInitializer implements CommandLineRunner {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
-    private final PasswordEncoder passwordEncoder;
     private static final String ADMIN_NAME = "techtider";
 
-    public DataInitializer(UserRepository userRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
+    public DataInitializer(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
         this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
     }
 
     @Transactional
@@ -54,7 +51,6 @@ public class DataInitializer implements CommandLineRunner {
             // Create new admin user if not exists
             User admin = new User();
             admin.setUsername(ADMIN_NAME);
-            admin.setPassword(passwordEncoder.encode(ADMIN_NAME)); // Secure the password
             admin.setRoles(new HashSet<>()); // Initialize roles set
             admin.getRoles().add(adminRole);
             userRepository.save(admin);

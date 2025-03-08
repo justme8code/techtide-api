@@ -1,8 +1,9 @@
 package com.justme8code.techtide.controllers;
 
 import com.justme8code.techtide.custom_responses.LoginResponse;
+import com.justme8code.techtide.models.ResetPasswordRequest;
 import com.justme8code.techtide.models.UserLogin;
-import com.justme8code.techtide.services.AuthService;
+import com.justme8code.techtide.services.interfaces.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
@@ -34,5 +35,17 @@ public class AuthController {
     public ResponseEntity<Void> requestLogout(HttpServletResponse response){
         authService.logout(response);
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/reset-password")
+    public ResponseEntity<String> resetPassword(@RequestBody ResetPasswordRequest resetPasswordRequest) {
+        authService.resetPassword(resetPasswordRequest);
+        return ResponseEntity.ok("password reset successful");
+    }
+
+    @PutMapping("/change-password")
+    public ResponseEntity<String> changePassword(@RequestBody ResetPasswordRequest resetPasswordRequest){
+        authService.resetPassword(resetPasswordRequest);
+        return ResponseEntity.ok("password changed successful");
     }
 }

@@ -1,7 +1,7 @@
 services:
   techtide:
     container_name: techtide-container
-    image: techtide:1.2
+    image: techtide:latest
 
     env_file:
       - .azure/default/.env
