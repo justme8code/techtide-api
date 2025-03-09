@@ -27,7 +27,7 @@ public class ExploreImpl implements Explore {
         List<BlogPost> blogPosts;
         if(keyword.equals("latest")){
             blogPosts=blogPostRepository.
-                    findAll(BlogPostSpecification.latest(keyword, LocalDateTime.now().minusWeeks(2)));
+                    findAll(BlogPostSpecification.latest(LocalDateTime.now().minusWeeks(2)));
             return blogPosts.stream().map(blogPostMapper::toDto).toList();
         }
         blogPosts = blogPostRepository.findAll(BlogPostSpecification.hasKeyword(keyword));

@@ -3,6 +3,8 @@ package com.justme8code.techtide.models;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 
@@ -29,19 +31,10 @@ public class BlogPost {
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
 
+    @CreationTimestamp
     private LocalDateTime publishedOn;
+
+    @LastModifiedDate
     private LocalDateTime modifiedOn;
-
-    @PrePersist
-    protected void onCreate() {
-        publishedOn = LocalDateTime.now();
-        modifiedOn = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    protected void onUpdate() {
-        modifiedOn = LocalDateTime.now();
-    }
-
 
 }

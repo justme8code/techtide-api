@@ -15,12 +15,8 @@ public class BlogPostSpecification {
         );
     }
 
-    public static Specification<BlogPost> latest(String keyword, LocalDateTime date) {
+    public static Specification<BlogPost> latest(LocalDateTime date) {
         return (root, query, criteriaBuilder) -> criteriaBuilder.and(
-                criteriaBuilder.or(
-                        criteriaBuilder.like(root.get("title"), "%" + keyword + "%"),
-                        criteriaBuilder.like(root.get("description"), "%" + keyword + "%")
-                ),
                 criteriaBuilder.greaterThanOrEqualTo(root.get("publishedOn"), date)
         );
     }

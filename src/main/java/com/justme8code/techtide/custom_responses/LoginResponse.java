@@ -9,4 +9,5 @@ import lombok.Setter;
 @RequiredArgsConstructor
 public class LoginResponse {
     private String userId;
+    private String jwtToken;
 }

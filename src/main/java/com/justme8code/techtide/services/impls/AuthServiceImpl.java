@@ -60,6 +60,7 @@ public class AuthServiceImpl implements AuthService {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setUserId(SecurityUtils.getCurrentUserId());
+        loginResponse.setJwtToken(token);
         return loginResponse;
     }
 
