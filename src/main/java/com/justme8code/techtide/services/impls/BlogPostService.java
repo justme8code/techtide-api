@@ -72,4 +72,10 @@ public class BlogPostService {
         return new PageImpl<>(blogPostDtos, pageable, blogPostPage.getTotalElements());
     }
 
+    public void deleteABlogPost(long id) {
+        BlogPost blogPost = blogPostRepository
+                .findById(id).orElseThrow(() -> new UnExpectedException("Blog post not found"));
+        blogPostRepository.delete(blogPost);
+    }
+
 }

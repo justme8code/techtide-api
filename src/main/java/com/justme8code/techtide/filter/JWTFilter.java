@@ -36,9 +36,8 @@ public class JWTFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         JwtFilterLogger.debug("JWTFilter doFilter called : {}", request.getRequestURI());
-        if(request.getRequestURI().contains("/api/auth") && request.getMethod().equals("DELETE"))
+        if(request.getRequestURI().contains("/api/auth"))
             filterChain.doFilter(request, response);
-
 
         String jwtToken = JwtFilterUtil.tryGetJwtTokenFromAuthorizationHeaderOrCookieListsRequest(request);
         if (jwtToken != null && jwtToken.startsWith("Bearer ")) {

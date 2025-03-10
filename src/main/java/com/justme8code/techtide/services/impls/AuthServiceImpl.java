@@ -56,7 +56,6 @@ public class AuthServiceImpl implements AuthService {
         user.setPassword(userLogin.getPassword());
         Authentication authentication = SecurityUtils.authenticateUser(user,authenticationManager);
         String token = authorizer.generateToken(authentication);
-        RequestResponseUtil.addAuthCookieToResponse(response,token);
         SecurityContextHolder.getContext().setAuthentication(authentication);
         LoginResponse loginResponse = new LoginResponse();
         loginResponse.setUserId(SecurityUtils.getCurrentUserId());
